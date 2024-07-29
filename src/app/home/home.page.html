@@ -16,4 +16,15 @@
       <ion-label [innerHtml]="theHtml"></ion-label>
     </ion-item>
   </ion-list>
+
+  <div class="ion-padding" [ngSwitch]="theState">
+    <div *ngSwitchCase="0">Not yet, dude...</div>
+    <div *ngSwitchDefault>
+      <ion-list>
+        <ion-item>
+          <ion-label [innerHtml]="theHtml"></ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
 </ion-content>
