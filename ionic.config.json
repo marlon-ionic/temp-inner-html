@@ -1,0 +1,7 @@
+{
+  "name": "temp-inner-html",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
