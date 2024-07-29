@@ -18,11 +18,18 @@
   </ion-list>
 
   <div class="ion-padding" [ngSwitch]="theState">
-    <div *ngSwitchCase="0">Not yet, dude...</div>
+    <div *ngSwitchCase="0">
+      <ion-list>
+        <ion-item>
+          <ion-label [innerHtml]="startingHtml"></ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
     <div *ngSwitchDefault>
       <ion-list>
         <ion-item>
-          <ion-label [innerHtml]="theHtml"></ion-label>
+          <ion-label [innerHtml]="endingHtml"></ion-label>
         </ion-item>
       </ion-list>
     </div>
