@@ -1,13 +1,84 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>example</ion-title>
+    <ion-title> Example from Stackblitz </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">example</ion-title>
+      <ion-title size="large">Example from Stackblitz</ion-title>
     </ion-toolbar>
   </ion-header>
+
+<div class="ion-margin">
+  Item 1: Plain Text works as expected <br />
+  Item 2: Span inside ion-label works as expected <br />
+  <strong>Item 3: ion-label with innerHTML which contains a span -> gets the
+    attribute hidden set on it. </strong><br />
+  Item 4: ion-label with innerHTML without a span gets displayed correctly
+  <br />
+  Item 5: innerHTML set directly on ion-item without ion-label
+  <br />
+  Item 6: innerHTML with DomSanitizer called directly -> shows span content
+  <br />
+  <strong>Item 7: innerHTML with DomSanitizer called as pipe -> gets hidden</strong>
+  <br />
+  <strong>Item 8: innerHTML with no DomSanitizer with `span` and `script` content ->
+    span is hidden, script is completely removed.</strong>
+</div>
+
+<ion-list>
+  <!--      Item 1-->
+  <ion-item>
+    <ion-label>Plain Text Item</ion-label>
+  </ion-item>
+  <!--      Item 2-->
+  <ion-item>
+    <ion-label>
+      <span> Span Text Item </span>
+    </ion-label>
+  </ion-item>
+  <!--      Item 3-->
+  <ion-item>
+    <ion-label [innerHTML]="'<span>Span with Innerhtml</span>'"> </ion-label>
+  </ion-item>
+  <!--      Item 4-->
+  <ion-item>
+    <ion-label [innerHTML]="'Plaintext set with Innerhtml'"> </ion-label>
+  </ion-item>
+  <!--      Item 5-->
+  <ion-item [innerHTML]="'<span>Span with Innerhtml, no label</span>'">
+  </ion-item>
+  <!-- Item 6-->
+  <ion-item>
+    <ion-label [innerHTML]="
+        sanitizer.bypassSecurityTrustHtml(
+          '<span>Span with Innerhtml, sanitized</span>'
+        )
+      ">
+    </ion-label>
+  </ion-item>
+  <!-- Item 7-->
+  <ion-item>
+    <ion-label [innerHTML]="
+        '<span>Span with Innerhtml, sanitized by pipe</span>' | safeHtml
+      ">
+    </ion-label>
+  </ion-item>
+  <!-- Item 8-->
+  <ion-item>
+    <ion-label [innerHTML]="'Safecontent <span>spanContent</span> <script></script>'">
+    </ion-label>
+  </ion-item>
+</ion-list>
+
+<div class="ion-margin">
+  <div [innerHTML]="'<span>Native div with span innerHTML inside works</span>'"></div>
+
+<ion-button (click)="removeAllHiddenAttributesPlainJs()">
+  Remove all hidden attributes
+</ion-button>
+</div>
+
 </ion-content>
