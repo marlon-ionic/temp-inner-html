@@ -79,6 +79,7 @@
     "@capacitor/configure": "^2.0.10",
     "@capacitor/ios": "^6.0.0",
     "@capacitor/project": "^2.0.8",
+    "@ionic/angular-toolkit": "^11.0.1",
     "@nx/angular": "18.2.4",
     "@nx/eslint": "18.2.4",
     "@nx/eslint-plugin": "18.2.4",
